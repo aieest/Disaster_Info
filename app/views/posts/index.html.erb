@@ -1,0 +1,12 @@
+<%= link_to 'New', new_post_path %>
+<% @posts.each do |post| %>
+  <content class="post-container">
+    <h1 class="post-title"><%= post.title %></h1>
+    <p class="post-content"><%= post.content %></p>
+    <div class="post-btn">
+      <%= link_to 'Show', post_path(post) %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-primary' %>
+    </div>
+  </content>
+<% end %>

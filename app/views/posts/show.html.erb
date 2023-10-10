@@ -3,6 +3,7 @@
   <li><%= @post.title %></li>
   <li><%= @post.content %></li>
   <li><%= comment.content %>(<%= comment.created_at %>)</li>
+  <%= @post.user&.email %>
 </ul>
 
 <%= link_to 'Back', posts_path %>

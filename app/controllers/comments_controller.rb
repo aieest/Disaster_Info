@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @post.comments
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    @hot_comments = @comments.limit(3)
   end
   def new
     @comment = @post.comments.build

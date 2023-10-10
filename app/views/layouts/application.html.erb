@@ -11,6 +11,17 @@
 </head>
 
 <body>
+<content class="top-section">
+  <img src="" alt="" class="web-logo">
+  <nav>
+    <ul>
+      <li><%= link_to 'HOME', root_path, class: 'nav-btn' %></li>
+      <li><%= link_to 'POSTS', posts_path, class: 'nav-btn' %></li>
+      <li><%= link_to 'MY POSTS', root_path, class: 'nav-btn' %></li>
+    </ul>
+  </nav>
+</content>
+
   <% if flash[:notice] %>
     <p class="notice"><%= notice %></p>
   <% end %>

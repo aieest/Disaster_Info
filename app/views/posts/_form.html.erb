@@ -8,11 +8,11 @@
   <% end %>
   <div>
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: 'Enter title' %>
   </div>
   <div>
     <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, placeholder: 'Enter content' %>
   </div>
   <%= form.submit %>
 <% end %>

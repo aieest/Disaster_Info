@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :validate_post_owner, only: [:edit, :update, :destroy]
 
   def index
   @posts = Post.all
@@ -9,6 +11,7 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       flash[:notice] = 'Post created successfully'
       redirect_to posts_path
@@ -47,6 +50,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content)
   end
-
 end
 

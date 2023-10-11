@@ -21,9 +21,9 @@ body {
   align-items: center;
 }
 .active {
-  position: relative; /* Add this to create a stacking context */
+  position: relative;
   background-image: var(--gradient-one);
-  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
@@ -64,9 +64,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  position: relative; /* Add this to create a stacking context */
+  position: relative;
   background-image: var(--gradient-one);
-  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
@@ -87,9 +87,9 @@ h1.welcome-header {
   font-size: 120px;
   font-weight: bold;
   letter-spacing: 2px;
-  position: relative; /* Add this to create a stacking context */
+  position: relative;
   background-image: var(--gradient-one);
-  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
@@ -102,9 +102,9 @@ p.welcome-text {
 a.home-btn {
   text-decoration: none;
   font-size: 30px;
-  position: relative; /* Add this to create a stacking context */
+  position: relative;
   background-image: var(--gradient-one);
-  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }

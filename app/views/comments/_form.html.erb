@@ -1,3 +1,5 @@
+<section class="comment-input-container">
+
 <%= form_with model: comment, url: path, data: { turbo: false } do |form| %>
   <% if comment.errors.any? %>
     <ul>
@@ -12,3 +14,5 @@
   </div>
   <%= form.submit %>
 <% end %>
+
+</section>

@@ -2,7 +2,7 @@ class User::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.includes(:disasters, :user).all.ordered_by_comments_count
+    @posts = Post.includes(:categories, :user).all
   end
 
 end

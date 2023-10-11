@@ -1,0 +1,14 @@
+<h2>My Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <% if user_signed_in? && comment.user == current_user %>
+      <li>
+        <%= comment.content %> by <%= comment.user&.email %>
+        <%= comment.content %>(<%= comment.created_at %>)
+        <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) %>
+        <%= button_to 'Delete', post_comment_path(comment.post, comment), method: :delete %>
+        <%= link_to 'Add Comment', new_post_comment_path(comment.post, comment) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

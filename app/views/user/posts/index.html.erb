@@ -1,7 +1,10 @@
+
+<content class="posts">
+
 <%= link_to 'New', new_post_path if user_signed_in? %>
 <% @posts.each do |post| %>
   <% if user_signed_in? && post.user == current_user %>
-  <content class="post-container">
+  <section class="post-container">
     <h1 class="post-title"><%= post.title %></h1>
     <p class="post-content"><%= post.content %></p>
     <p class="post-address"><%= post.address %></p>
@@ -16,6 +19,10 @@
         <%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-primary' %>
       <%# end %>
     </div>
-  </content>
+  </section>
   <% end %>
 <% end %>
+
+</content>
+
+<%= paginate @posts %>

@@ -17,7 +17,7 @@ body {
   //background:  var(--bg-color);
   overflow: hidden;
   display: grid;
-  grid-auto-rows: 10vh 90vh;
+  grid-auto-rows: 10vh 70vh 10vh;
   align-items: center;
 }
 .active {
@@ -120,6 +120,8 @@ content.post {
 content.post section.post-container {
   width: 80vh;
   height: 30vh;
+  display: flex;
+  flex-direction: row;
 }
 
 content.post section.post-container img {

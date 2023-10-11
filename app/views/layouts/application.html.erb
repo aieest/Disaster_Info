@@ -15,9 +15,20 @@
   <img src="" alt="" class="web-logo">
   <nav>
     <ul>
-      <li><%= link_to 'HOME', root_path, class: 'nav-btn' %></li>
-      <li><%= link_to 'POSTS', posts_path, class: 'nav-btn' %></li>
-      <li><%= link_to 'MY POSTS', root_path, class: 'nav-btn' %></li>
+
+      <li>
+        <%= link_to 'HOME', root_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+      </li>
+      <li>
+        <%= link_to 'POSTS', posts_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+      </li>
+      <li>
+        <%= link_to 'MY POST', user_posts_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+      </li>
+      <li>
+        <%= link_to 'MY COMMENTS', user_comments_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+      </li>
+
     </ul>
   </nav>
 </content>

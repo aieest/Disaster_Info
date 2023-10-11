@@ -1,20 +1,33 @@
-<%= link_to 'New', new_post_path if user_signed_in? %>
-<% @posts.each do |post| %>
-  <content class="post-container">
-    <h1 class="post-title"><%= post.title %></h1>
-    <p class="post-content"><%= post.content %></p>
-    <p class="post-address"><%= post.address %></p>
-    <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
-    <p class="post-user"><%= post.user&.email %></p>
-    <%= image_tag post.image.url if post.image.present?%>
-    <div class="post-btn">
-      <%= link_to 'Show', post_path(post) %>
-      <%= link_to "#{post.comment_count} Comments", post_comments_path(post) %>
-      <% if user_signed_in? && post.user == current_user %>
-        <%= link_to 'New Comment', new_post_comment_path(post) if user_signed_in? %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-primary' %>
-      <% end %>
-    </div>
-  </content>
-<% end %>
+<style>
+  body {
+      overflow: auto;
+  }
+</style>
+<content class="posts">
+
+  <%= link_to 'New', new_post_path if user_signed_in? %>
+  <% @posts.each do |post| %>
+    <section class="post-container">
+
+      <h1 class="post-title"><%= post.title %></h1>
+      <p class="post-address"><%= post.address %></p>
+      <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
+      <p class="post-user"><%= post.user&.email %></p>
+
+
+      <div class="post-btn">
+        <%= link_to 'Show', post_path(post) %>
+        <div class="comment-div">
+          <%= link_to "#{post.comment_count}", post_comments_path(post), class: "comment-counter" %>
+        </div>
+        <% if user_signed_in? && post.user == current_user %>
+          <%= link_to 'New Comment', new_post_comment_path(post) if user_signed_in? %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+
+    </section>
+  <% end %>
+
+</content>

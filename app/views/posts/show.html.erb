@@ -1,7 +1,7 @@
-<h1>show post id: <%= @post.id %></h1>
+<h1 class="show-post-header"><%= @post.title %></h1>
+<p class="show-post-user"><%= @post.content %></p>
+<%= image_tag post.image.url if post.image.present?%>
 <ul>
-  <li><%= @post.title %></li>
-  <li><%= @post.content %></li>
   <li><%= comment.content %>(<%= comment.created_at %>)</li>
   <%= @post.user&.email %>
 </ul>

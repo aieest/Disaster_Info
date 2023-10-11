@@ -8,6 +8,9 @@
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,16 +20,16 @@
     <ul>
 
       <li>
-        <%= link_to 'HOME', root_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+        <%= link_to 'HOME', root_path, class: "nav-btn #{'active' if action_name == 'HOME' }", 'aria-current': 'page' if user_signed_in? %>
       </li>
       <li>
-        <%= link_to 'POSTS', posts_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+        <%= link_to 'POSTS', posts_path, class: "nav-btn #{'active' if action_name == 'POSTS' }", 'aria-current': 'page' if user_signed_in? %>
       </li>
       <li>
-        <%= link_to 'MY POST', user_posts_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+        <%= link_to 'MY POST', user_posts_path, class: "nav-btn #{'active' if action_name == 'MY POSTS' }", 'aria-current': 'page' if user_signed_in? %>
       </li>
       <li>
-        <%= link_to 'MY COMMENTS', user_comments_path, class: "nav-btn #{'active' if action_name == 'posts' }", 'aria-current': 'page' if user_signed_in? %>
+        <%= link_to 'MY COMMENTS', user_comments_path, class: "nav-btn #{'active' if action_name == 'MY COMMENTS' }", 'aria-current': 'page' if user_signed_in? %>
       </li>
 
     </ul>

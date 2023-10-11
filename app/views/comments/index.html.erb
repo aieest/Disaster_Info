@@ -1,15 +1,17 @@
-<h2>Comments</h2>
-<ul>
+<content class="comments">
+
   <% @comments.each do |comment| %>
-  <li>
-    <%= comment.content %>(<%= comment.created_at %>) by <%= comment.user&.email %>
-    <%= link_to 'Edit', edit_post_comment_path(@post, comment) if user_signed_in? && comment.user == current_user %>
-    <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete if user_signed_in? && comment.user == current_user %>
-    <% if @hot_comments.include?(comment) %>
-      <span class="hot-tag">Hot</span>
-    <% end %>
-  </li>
+    <li>
+      <%= comment.content %>(<%= comment.created_at %>) by <%= comment.user&.email %>
+      <%= link_to 'Edit', edit_post_comment_path(@post, comment) if user_signed_in? && comment.user == current_user %>
+      <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete if user_signed_in? && comment.user == current_user %>
+      <% if @hot_comments.include?(comment) %>
+        <span class="hot-tag">Hot</span>
+      <% end %>
+    </li>
   <% end %>
 
 
-<%= link_to 'Post List', posts_path %>
+  <%= link_to 'Post List', posts_path %>
+
+</content>

@@ -1,2 +1,128 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+:root {
+  --bg-color: rgb(0, 0, 52);
+  --gradient-one: linear-gradient(#ffcb52, #ff7b02);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  //border: 1px solid white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  //background:  var(--bg-color);
+  overflow: hidden;
+  display: grid;
+  grid-auto-rows: 10vh 90vh;
+  align-items: center;
+}
+.active {
+  position: relative; /* Add this to create a stacking context */
+  background-image: var(--gradient-one);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent;
+}
+
+/* NAV BAR */
+
+content.top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  margin: 3vh;
+}
+
+nav ul {
+  margin: auto;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 10px;
+}
+
+nav ul li a {
+  margin: auto;
+  font-weightt: 400px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  transition: all 1s ease;
+}
+
+nav ul li a:hover {
+  position: relative; /* Add this to create a stacking context */
+  background-image: var(--gradient-one);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent;
+}
+
+  /* HOME CONTENT*/
+.home {
+  margin-bottom: 10vh;
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+h1.welcome-header {
+  font-size: 120px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  position: relative; /* Add this to create a stacking context */
+  background-image: var(--gradient-one);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent;
+}
+
+p.welcome-text {
+  font-size: 40px;
+  color: white;
+}
+
+a.home-btn {
+  text-decoration: none;
+  font-size: 30px;
+  position: relative; /* Add this to create a stacking context */
+  background-image: var(--gradient-one);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers */
+  background-clip: text;
+  color: transparent;
+}
+
+/* POSTS */
+
+content.post {
+  margin-bottom: 10vh;
+  height: 80vh;
+  width: 100vw;
+}
+
+content.post section.post-container {
+  width: 80vh;
+  height: 30vh;
+}
+
+content.post section.post-container img {
+  max-height: 300px;
+  max-width: 400px;
+}

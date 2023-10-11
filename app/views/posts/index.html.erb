@@ -1,4 +1,8 @@
 <style>
+
+  * {
+      border: 1px solid black;
+  }
   body {
       overflow: auto;
   }
@@ -9,11 +13,12 @@
   <% @posts.each do |post| %>
     <section class="post-container">
 
-      <h1 class="post-title"><%= post.title %></h1>
-      <p class="post-address"><%= post.address %></p>
-      <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
-      <p class="post-user"><%= post.user&.email %></p>
-
+      <div class="post-texts">
+        <h1 class="post-title"><%= post.title %></h1>
+        <p class="post-address"><%= post.address %></p>
+        <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
+        <p class="post-user"><%= post.user&.email %></p>
+      </div>
 
       <div class="post-btn">
         <%= link_to 'Show', post_path(post) %>

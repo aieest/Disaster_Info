@@ -115,13 +115,25 @@ content.post {
   margin-bottom: 10vh;
   height: 80vh;
   width: 100vw;
+  overflow: scroll;
 }
 
-content.post section.post-container {
+section.post-container {
+  margin: auto;
   width: 80vh;
-  height: 30vh;
-  display: flex;
-  flex-direction: row;
+  height: 20vh;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  align-items: center;
+}
+
+div.post-texts {
+  margin: auto;
+  place-self: first;
+}
+
+div.post-btn {
+  margin: auto;
 }
 
 content.post section.post-container img {

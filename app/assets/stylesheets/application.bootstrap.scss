@@ -231,6 +231,7 @@ a.new-post-btn {
 }
 
 .post-form {
+  margin: 10vh;
   width: 50vh;
   background: var(--gradient-two);
   padding: 20px;
@@ -306,7 +307,7 @@ div.post-categories-container input {
 
 .image-input {
   text-align: center;
-  color: var(--bg-color);
+  color: white;
   background: var(--bg-color);
   border-radius: 3px;
 }

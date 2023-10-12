@@ -9,10 +9,9 @@ class PostsController < ApplicationController
                  .group("posts.id")
                  .select("posts.*, COUNT(comments.id) AS comments_count")
                  .order("comments_count DESC")
-                 .page(params[:page])
-                 .per(3)
 
     @hot_posts = @posts.limit(3)
+    @posts = @posts.page(params[:page]).per(3)
   end
   def new
     @post = Post.new

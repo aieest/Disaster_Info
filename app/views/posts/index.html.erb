@@ -1,4 +1,10 @@
 
+  <% if user_signed_in? %>
+    <p class="welcome-text">Welcome to back Disaster Info</p>
+  <% else %>
+    <p class="welcome-text">Welcome to Disaster Info</p>
+  <% end %>
+
 <content class="posts">
 
   <% @posts.each do |post| %>

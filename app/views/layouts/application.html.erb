@@ -16,12 +16,16 @@
 
 <body>
 <content class="top-section">
+
+  <% if user_signed_in? %>
+    <%= link_to 'Sign out', destroy_user_session_path, data: { 'turbo-method': :delete }, class: 'home-btn' %>
+  <% else %>
+    <%= link_to 'Sign in', new_user_session_path, class: 'home-btn' %>
+  <% end %>
+
   <nav>
     <ul>
 
-      <li>
-        <%= link_to 'HOME', root_path, class: "nav-btn #{'active' if action_name == 'HOME' }", 'aria-current': 'page' %>
-      </li>
       <li>
         <%= link_to 'POSTS', posts_path, class: "nav-btn #{'active' if action_name == 'POSTS' }", 'aria-current': 'page' %>
       </li>

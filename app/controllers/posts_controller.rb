@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :validate_post_owner, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:categories, :user).all.page(params[:page]).per(3)
+    @posts = Post.includes(:categories, :user).all.page(params[:page]).per(3).order(created_at: :desc)
   end
   def new
     @post = Post.new

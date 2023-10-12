@@ -1,3 +1,9 @@
-<h1>Title: <%= @post.title %></h1>
-<h2>Edit Comment ID: <%= @comment.id %></h2>
-<%= render partial: 'form', locals: { post: @post, comment: @comment, path: post_comment_path(@post, @comment) } %>
+<h1 class="comment-edit-head"><%= @post.title %></h1>
+
+<content class="comment-form-container">
+  <h1 class="comment-header">COMMENT</h1>
+
+  <%= render partial: 'form', locals: { post: @post, comment: @comment, path: post_comment_path(@post, @comment) } %>
+</content>
+
+<!--<h2>Edit Comment ID: <%#= @comment.id %></h2>-->

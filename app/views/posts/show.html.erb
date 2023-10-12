@@ -1,11 +1,35 @@
-<h1 class="show-post-header"><%= @post.title %></h1>
-<p class="show-post-user"><%= @post.content %></p>
-<%= image_tag @post.image.url if @post.image.present?%>
-<ul>
-  <%= @post.comments.each do |comment| %>
-  <li><%= comment.content %>(<%= comment.created_at %>)</li>
-  <%= @post.user&.email %>
-  <% end %>
-</ul>
 
-<%= link_to 'Back', posts_path %>
+<content class="post-view-container">
+
+  <section class="post-view-main">
+
+    <h1 class="post-view-header"><%= @post.title %></h1>
+    <p class="post-view-user"><%= @post.content %></p>
+    <%= image_tag @post.image.url, class: 'post-view-image' if @post.image.present?%>
+
+  </section>
+
+
+  <section class="post-view-comment-container">
+
+    <% @post.comments.each do |comment| %>
+
+      <div class="post-view-comment">
+
+        <p class="post-view-comment-head">
+          <%= @post.user&.email %>
+        </p>
+        <p class="post-view-comment-body">
+          <%= comment.content %>
+        </p>
+
+      </div>
+
+    <% end %>
+
+  </section>
+
+  <%= link_to 'Back', posts_path, class: 'back-to-posts' %>
+
+</content>
+

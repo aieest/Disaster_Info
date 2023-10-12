@@ -2,7 +2,7 @@ class User::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.includes(:categories, :user).all.page(params[:page]).per(5)
+    @posts = current_user.posts.page(params[:page]).per(3)
   end
 
 end

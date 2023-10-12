@@ -324,6 +324,59 @@ div.post-categories-container input {
   color: white;
 }
 
+
+/* POST VIEW */
+.post-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.post-view-main {
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  width: auto;
+  height: auto;
+  background: var(--gradient-two);
+  box-shadow: 1px 2px 10px rgba(181, 136, 247, 0.45);
+}
+
+.post-view-header, .post-view-user {
+  color: white;
+  width: auto;
+  height: auto;
+}
+
+.post-view-comment-container{
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  max-height: 20vh;
+}
+
+.post-view-comment {
+  margin-top: 10px;
+  width: 30vw;
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--gradient-three);
+}
+
+.post-view-comment p {
+  color: white;
+}
+
+.post-view-image {
+  max-width: 30vw;
+  height: auto;
+  border-radius: 10px;
+}
+
 /* COMMENTS INDEX */
 
 .comment-container {

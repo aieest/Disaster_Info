@@ -20,10 +20,10 @@
     <ul>
 
       <li>
-        <%= link_to 'HOME', root_path, class: "nav-btn #{'active' if action_name == 'HOME' }", 'aria-current': 'page' if user_signed_in? %>
+        <%= link_to 'HOME', root_path, class: "nav-btn #{'active' if action_name == 'HOME' }", 'aria-current': 'page' %>
       </li>
       <li>
-        <%= link_to 'POSTS', posts_path, class: "nav-btn #{'active' if action_name == 'POSTS' }", 'aria-current': 'page' if user_signed_in? %>
+        <%= link_to 'POSTS', posts_path, class: "nav-btn #{'active' if action_name == 'POSTS' }", 'aria-current': 'page' %>
       </li>
       <li>
         <%= link_to 'MY POST', user_posts_path, class: "nav-btn #{'active' if action_name == 'MY POSTS' }", 'aria-current': 'page' if user_signed_in? %>

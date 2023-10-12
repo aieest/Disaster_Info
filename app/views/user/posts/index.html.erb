@@ -1,28 +1,51 @@
-
 <content class="posts">
 
-<%= link_to 'New', new_post_path if user_signed_in? %>
-<% @posts.each do |post| %>
-  <% if user_signed_in? && post.user == current_user %>
-  <section class="post-container">
-    <h1 class="post-title"><%= post.title %></h1>
-    <p class="post-content"><%= post.content %></p>
-    <p class="post-address"><%= post.address %></p>
-    <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
-    <p class="post-user"><%= post.user&.email %></p>
-    <div class="post-btn">
-      <%= link_to 'Show', post_path(post) %>
-      <%= link_to 'Comments', post_comments_path(post) %>
-      <%= link_to 'New Comment', new_post_comment_path(post) if user_signed_in? %>
-      <%# if user_signed_in? && post.user == current_user %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-primary' %>
-      <%# end %>
-    </div>
-  </section>
+  <% @posts.each do |post| %>
+    <% if user_signed_in? && post.user == current_user %>
+      <section class="post-container">
+
+        <div class="post-texts">
+          <h1 class="post-title"><%= post.title %></h1>
+          <p class="post-address"><%= post.address %></p>
+          <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
+          <p class="post-user"><%= post.user&.email %></p>
+        </div>
+
+        <div class="post-btn">
+          <%= link_to '', post_path(post), class: 'fa-solid fa-eye' %>
+
+          <div class="icon-container">
+            <i class="fa-solid fa-comment"></i>
+            <%= link_to "#{post.comment_count}", post_comments_path(post), class: 'link' %>
+          </div>
+
+          <% if user_signed_in? %>
+            <div class="icon-container">
+              <i class="fa-solid fa-comment"></i>
+              <%= link_to '+', new_post_comment_path(post), class: 'link' %>
+            </div>
+          <% end %>
+
+
+          <% if user_signed_in? && post.user == current_user %>
+
+            <div class="icon-container">
+              <%= link_to '', edit_post_path(post), class: 'fa-solid fa-wrench'%>
+            </div>
+
+            <div class="icon-container">
+              <%= link_to '', post_path(post), method: :delete, class: 'fa-solid fa-trash' %>
+            </div>
+          <% end %>
+
+        </div>
+
+      </section>
+    <% end %>
   <% end %>
-<% end %>
 
 </content>
+
+<%= link_to 'New Post', new_post_path, class: 'new-post-btn' if user_signed_in? %>
 
 <%= paginate @posts %>

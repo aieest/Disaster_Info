@@ -1,24 +1,26 @@
 <%= form_with model: post do |form| %>
-  <% if post.errors.any? %>
-    <ul>
-      <% post.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder: 'Enter title' %>
+
+<section class="post-form-content">
+
+  <ul>
+    <% post.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+
+  <div class="post-form-text">
+    <%= form.text_field :title, placeholder: 'Enter title', class: 'post-form-title-input' %>
+    <%= form.text_field :address, placeholder: 'Enter Address', class: 'post-form-address-input' %>
+    <%= form.text_field :content, placeholder: 'Enter content', class: 'post-form-content-input' %>
   </div>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_field :content, placeholder: 'Enter content' %>
+  <div class="post-categories-container">
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
   </div>
-  <div>
-     <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  <div class="post-image-uploader">
+    <%= form.file_field :image, class: 'image-input' %>
   </div>
-  <div>
-    <%= form.file_field :image %>
-  </div>
-  <%= form.submit %>
+
+  <%= form.submit class: 'new-post-submit'%>
+</section>
+
 <% end %>

@@ -5,7 +5,15 @@
     <section class="post-container">
 
       <div class="post-texts">
-        <h1 class="post-title"><%= post.title %></h1>
+        <h1 class="post-title">
+
+          <%= post.title %>
+
+          <% if @hot_posts.include?(post) %>
+            <span class="hot-tag">HOT</span>
+          <% end %>
+
+        </h1>
         <p class="post-address"><%= post.address %></p>
         <p class="post-category"><%= post.categories.pluck(:name).join(',') %></p>
         <p class="post-user"><%= post.user&.email %></p>

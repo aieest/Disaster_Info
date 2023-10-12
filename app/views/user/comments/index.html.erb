@@ -1,14 +1,26 @@
-<h2>My Comments</h2>
-<ul>
+<content class="comment-index">
+
   <% @comments.each do |comment| %>
     <% if user_signed_in? && comment.user == current_user %>
-      <li>
-        <%= comment.content %> by <%= comment.user&.email %>
-        <%= comment.content %>(<%= comment.created_at %>)
-        <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) %>
-        <%= button_to 'Delete', post_comment_path(comment.post, comment), method: :delete %>
-        <%= link_to 'Add Comment', new_post_comment_path(comment.post, comment) %>
-      </li>
+      <section class="comment-container">
+        <div class="comment-head">
+          <p class="comment-user">
+            <%= comment.user&.email %>
+          </p>
+
+          <div class="comment-actions">
+            <%= link_to '', edit_post_comment_path(comment.post, comment), class: 'fa-solid fa-wrench' if user_signed_in? && comment.user == current_user %>
+            <%= link_to '', post_comment_path(comment.post, comment), class: 'fa-solid fa-trash', method: :delete if user_signed_in? && comment.user == current_user %>
+          </div>
+        </div>
+        <p class="comment-date"><%= comment.created_at %></p>
+        <div class="comment-body">
+          <p class="comment-content"><%= comment.content %></p>
+        </div>
+      </section>
     <% end %>
   <% end %>
-</ul>
+
+</content>
+
+<%= paginate @comments %>

@@ -13,4 +13,6 @@ class Post < ApplicationRecord
  def comment_count
   self.comments.count
  end
+
+ scope :top_posts, -> { left_joins(:comments).group(:id).order('COUNT(comments.id) DESC').limit(3) }
 end

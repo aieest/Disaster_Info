@@ -4,7 +4,15 @@ class PostsController < ApplicationController
   before_action :validate_post_owner, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:categories, :user).all.page(params[:page]).per(3).order(created_at: :desc)
+    @posts = Post.includes(:categories, :user, :comments)
+                 .joins("LEFT JOIN comments ON comments.post_id = posts.id")
+                 .group("posts.id")
+                 .select("posts.*, COUNT(comments.id) AS comments_count")
+                 .order("comments_count DESC")
+                 .page(params[:page])
+                 .per(3)
+
+    @hot_posts = @posts.limit(3)
   end
   def new
     @post = Post.new
@@ -54,7 +62,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image, category_ids: [])
+    params.require(:post).permit(:title, :content, :address, :image, category_ids: [])
   end
 end
 

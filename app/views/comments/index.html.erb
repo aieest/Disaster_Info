@@ -5,9 +5,6 @@
         <div class="comment-head">
           <p class="comment-user">
             <%= comment.user&.email %>
-            <% if @hot_comments.include?(comment) %>
-              <span class="hot-tag">Hot</span>
-            <% end %>
           </p>
 
           <div class="comment-actions">

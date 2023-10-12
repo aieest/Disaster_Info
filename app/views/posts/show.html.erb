@@ -1,9 +1,11 @@
 <h1 class="show-post-header"><%= @post.title %></h1>
 <p class="show-post-user"><%= @post.content %></p>
-<%= image_tag post.image.url if post.image.present?%>
+<%= image_tag @post.image.url if @post.image.present?%>
 <ul>
+  <%= @post.comments.each do |comment| %>
   <li><%= comment.content %>(<%= comment.created_at %>)</li>
   <%= @post.user&.email %>
+  <% end %>
 </ul>
 
 <%= link_to 'Back', posts_path %>

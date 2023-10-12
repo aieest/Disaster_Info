@@ -1,18 +1,29 @@
-<content class="comments">
+<content class="comment-index">
 
   <% @comments.each do |comment| %>
-    <li>
-      <%= comment.content %>(<%= comment.created_at %>) by <%= comment.user&.email %>
-      <%= link_to 'Edit', edit_post_comment_path(@post, comment) if user_signed_in? && comment.user == current_user %>
-      <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete if user_signed_in? && comment.user == current_user %>
-      <% if @hot_comments.include?(comment) %>
-        <span class="hot-tag">Hot</span>
-      <% end %>
-    </li>
+      <section class="comment-container">
+        <div class="comment-head">
+          <p class="comment-user">
+            <%= comment.user&.email %>
+            <% if @hot_comments.include?(comment) %>
+              <span class="hot-tag">Hot</span>
+            <% end %>
+          </p>
+
+          <div class="comment-actions">
+            <%= link_to '', edit_post_comment_path(@post, comment), class: 'fa-solid fa-wrench' if user_signed_in? && comment.user == current_user %>
+            <%= link_to '', post_comment_path(@post, comment), class: 'fa-solid fa-trash', method: :delete if user_signed_in? && comment.user == current_user %>
+          </div>
+        </div>
+        <p class="comment-date"><%= comment.created_at %></p>
+        <div class="comment-body">
+          <p class="comment-content"><%= comment.content %></p>
+        </div>
+      </section>
   <% end %>
 
 
-  <%= link_to 'Post List', posts_path %>
+  <%= link_to 'Post List', posts_path, class: 'back-to-posts' %>
 
 </content>
 
